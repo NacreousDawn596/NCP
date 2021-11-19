@@ -5,8 +5,15 @@ from pyautogui import *
 from sys import exit
 sys.stderr.write("\x1b[2J\x1b[H")
 message = get('https://usefull-api.herokuapp.com/show').json()["message"]
+if "guess" in popen("cat .username.txt").read():
+	if "linux" not in popen("uname").read().lower():
+		username = input("what's your username?\n->")
+	else:
+		username = popen("pwd").read().split('/')[2]
+	system(f"echo '{username}' > .username.txt")
+else:
+	username = open('.username.txt', 'r').read()
 def send(message):
-	username = popen("pwd").read().split('/')[2]
 	try:
 		get(f'https://usefull-api.herokuapp.com/save/{username}/{message.replace("/", "")}')
 	except AttributeError:
