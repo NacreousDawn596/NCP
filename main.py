@@ -26,7 +26,7 @@ def recieve():
 		if content["message"] != message:
 			message = content["message"]
 			print(content['time'], ": ", content['author'], ": ", content['message'])
-			system(f"notify '{content['author']}' '{content['message']}'")
+			system(f'notify "{content["author"]}" "{content["message"]}"')
 		else:
 			pass
 def startchat():
