@@ -12,7 +12,7 @@ if "guess" in popen("cat .username.txt").read():
 		username = popen("pwd").read().split('/')[2]
 	system(f"echo '{username}' > .username.txt")
 else:
-	username = open('.username.txt', 'r').read()
+	username = popen('cat .username.txt').read()
 def send(message):
 	try:
 		get(f'https://usefull-api.herokuapp.com/save/{username}/{message.replace("/", "")}')
