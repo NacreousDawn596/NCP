@@ -15,7 +15,7 @@ else:
 	username = popen('cat .username.txt').read()
 def send(message):
 	try:
-		get(f'https://usefull-api.herokuapp.com/save/{username}/{message.replace("/", "")}')
+		get(f'https://usefull-api.herokuapp.com/save/{username}/{message.replace("/", "").replace("?", "%3F")}')
 	except AttributeError:
 		exit()
 def recieve():
