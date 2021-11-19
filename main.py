@@ -34,5 +34,6 @@ def startchat():
 		message = prompt(text='enter a text:', title='NCP' , default='')
 		send(message)
 if __name__ == '__main__':
+    send(f"{username} has joined the chat")
     Thread(target = startchat).start()
     Thread(target = recieve).start()
